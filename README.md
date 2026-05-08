@@ -143,6 +143,16 @@ DB_PASSWORD=
 
 ---
 
+## Default Login Account
+
+| Role | Email | Password |
+|------|------|------|
+| Admin | admin@gmail.com | admin123 |
+| Manager | manager@gmail.com | manager123 |
+| Admin Transportation | admintrans@gmail.com | admintrans123 |
+
+---
+
 ## Access Level Summary
 
 | Role | Access |

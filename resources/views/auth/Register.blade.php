@@ -13,7 +13,6 @@
   --vein: #262932;
   --rust: #c8440a;
   --rust-dim: #a33608;
-  --gold: #e8a730;
   --chalk: #f0ede6;
   --mist: #8c8f99;
   --line: rgba(255,255,255,0.06);
@@ -61,114 +60,91 @@ body::before {
   width: 44px; height: 44px;
   background: var(--rust);
   clip-path: polygon(0 20%, 100% 0, 100% 80%, 0 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px;
-  color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px; color: #fff;
 }
 .brand-name {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 26px;
-  letter-spacing: 3px;
-  line-height: 1;
+  font-size: 26px; letter-spacing: 3px; line-height: 1;
 }
 .brand-sub {
   font-family: 'Space Mono', monospace;
-  font-size: 9px;
-  color: var(--mist);
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  margin-top: 3px;
+  font-size: 9px; color: var(--mist);
+  letter-spacing: 2px; text-transform: uppercase; margin-top: 3px;
 }
 .middle-content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex: 1; display: flex; flex-direction: column; justify-content: center;
 }
 .step-label {
   font-family: 'Space Mono', monospace;
-  font-size: 10px;
-  color: var(--rust);
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 20px;
+  font-size: 10px; color: var(--rust);
+  letter-spacing: 3px; text-transform: uppercase;
+  display: flex; align-items: center; gap: 10px; margin-bottom: 20px;
 }
 .step-label::before {
-  content: '';
-  width: 28px; height: 1px;
-  background: var(--rust);
+  content: ''; width: 28px; height: 1px; background: var(--rust);
 }
 .display-title {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 62px;
-  line-height: 0.9;
-  letter-spacing: 2px;
-  margin-bottom: 20px;
+  font-size: 62px; line-height: 0.9;
+  letter-spacing: 2px; margin-bottom: 20px;
 }
 .display-title span { color: var(--rust); display: block; }
-.desc { font-size: 13px; line-height: 1.8; color: var(--mist); margin-bottom: 24px; }
-.role-info { display: flex; flex-direction: column; gap: 8px; }
-.ri-card {
+.desc { font-size: 13px; line-height: 1.8; color: var(--mist); margin-bottom: 28px; }
+
+/* Info card akun karyawan */
+.info-card {
   background: var(--vein);
   border: 1px solid rgba(255,255,255,0.06);
-  border-radius: 8px;
-  padding: 10px 14px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
+  border-radius: 10px;
+  padding: 20px;
 }
-.ri-icon {
-  width: 32px; height: 32px;
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 15px;
-  flex-shrink: 0;
-}
-.ri-icon.admin       { background: rgba(200,68,10,0.15);   color: #e87040; }
-.ri-icon.admin_trans { background: rgba(200,68,10,0.10);   color: #f0a070; }
-.ri-icon.manager     { background: rgba(232,167,48,0.15);  color: #e8a730; }
-.ri-icon.driver      { background: rgba(99,179,237,0.15);  color: #63b3ed; }
-.ri-icon.karyawan    { background: rgba(29,158,117,0.15);  color: #1d9e75; }
-.ri-title {
+.info-card-title {
   font-family: 'Space Mono', monospace;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: var(--chalk);
-  display: block;
+  font-size: 10px; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--mist);
+  margin-bottom: 14px;
 }
-.ri-desc { font-size: 11px; color: var(--mist); margin-top: 2px; line-height: 1.4; }
+.info-item {
+  display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px;
+}
+.info-item:last-child { margin-bottom: 0; }
+.info-icon {
+  width: 30px; height: 30px; border-radius: 6px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px;
+  background: rgba(29,158,117,0.15); color: #1d9e75;
+}
+.info-text { font-size: 12px; color: var(--mist); line-height: 1.5; }
+.info-text strong { color: var(--chalk); display: block; font-size: 11px; margin-bottom: 2px; }
+
+.note-box {
+  margin-top: 14px;
+  padding: 10px 14px;
+  background: rgba(200,68,10,0.08);
+  border: 1px solid rgba(200,68,10,0.2);
+  border-radius: 6px;
+  font-size: 11px;
+  color: #f0a070;
+  line-height: 1.5;
+  display: flex; gap: 8px; align-items: flex-start;
+}
+
 .bottom-note {
   font-family: 'Space Mono', monospace;
-  font-size: 10px;
-  color: rgba(140,143,153,0.5);
-  letter-spacing: 1px;
+  font-size: 10px; color: rgba(140,143,153,0.5); letter-spacing: 1px;
 }
+
+/* Right panel */
 .right-panel {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 48px 56px;
-  z-index: 1;
-  overflow-y: auto;
+  flex: 1; display: flex; align-items: center; justify-content: center;
+  padding: 48px 56px; z-index: 1; overflow-y: auto;
 }
-.form-box { width: 100%; max-width: 400px; }
+.form-box { width: 100%; max-width: 380px; }
 .form-headline { margin-bottom: 32px; }
 .form-headline h2 {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 36px;
-  letter-spacing: 2px;
-  line-height: 1;
-  margin-bottom: 8px;
+  font-size: 36px; letter-spacing: 2px; line-height: 1; margin-bottom: 8px;
 }
 .form-headline p { font-size: 13px; color: var(--mist); }
 .form-headline p a { color: var(--rust); text-decoration: none; font-weight: 500; }
@@ -177,24 +153,16 @@ body::before {
 .field label {
   display: block;
   font-family: 'Space Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--mist);
-  margin-bottom: 7px;
+  font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--mist); margin-bottom: 7px;
 }
 .input-wrap { position: relative; }
 .input-wrap i.icon-left {
-  position: absolute;
-  left: 13px;
-  top: 50%;
+  position: absolute; left: 13px; top: 50%;
   transform: translateY(-50%);
-  font-size: 16px;
-  color: var(--mist);
-  pointer-events: none;
+  font-size: 16px; color: var(--mist); pointer-events: none;
 }
-.input-wrap input,
-.input-wrap select {
+.input-wrap input {
   width: 100%;
   padding: 12px 13px 12px 40px;
   background: var(--vein);
@@ -202,137 +170,81 @@ body::before {
   border-radius: 6px;
   color: var(--chalk);
   font-family: 'DM Sans', sans-serif;
-  font-size: 14px;
-  outline: none;
+  font-size: 14px; outline: none;
   transition: border-color 0.2s, box-shadow 0.2s;
-  appearance: none;
-  -webkit-appearance: none;
 }
-.input-wrap select {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%238c8f99' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
-  background-repeat: no-repeat;
-  background-position: right 12px center;
-  background-size: 12px;
-  padding-right: 36px;
-}
-.input-wrap select option { background: var(--ore); }
-.input-wrap input:focus,
-.input-wrap select:focus {
+.input-wrap input:focus {
   border-color: var(--rust);
   box-shadow: 0 0 0 3px rgba(200,68,10,0.15);
 }
 .eye-btn {
-  position: absolute;
-  right: 11px;
-  top: 50%;
+  position: absolute; right: 11px; top: 50%;
   transform: translateY(-50%);
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: var(--mist);
-  font-size: 16px;
-  padding: 4px;
+  background: none; border: none; cursor: pointer;
+  color: var(--mist); font-size: 16px; padding: 4px;
   transition: color 0.2s;
 }
 .eye-btn:hover { color: var(--chalk); }
-.pw-strength {
-  margin-top: 8px;
-  display: flex;
-  gap: 4px;
-  align-items: center;
-}
+.pw-strength { margin-top: 8px; display: flex; gap: 4px; align-items: center; }
 .pw-bar {
-  flex: 1;
-  height: 3px;
+  flex: 1; height: 3px;
   background: rgba(255,255,255,0.08);
-  border-radius: 2px;
-  transition: background 0.3s;
+  border-radius: 2px; transition: background 0.3s;
 }
 .pw-bar.weak   { background: #e74c3c; }
-.pw-bar.medium { background: var(--gold); }
+.pw-bar.medium { background: #e8a730; }
 .pw-bar.strong { background: #1d9e75; }
 .pw-label {
   font-family: 'Space Mono', monospace;
-  font-size: 10px;
-  color: var(--mist);
-  width: 52px;
-  text-align: right;
-  letter-spacing: 1px;
+  font-size: 10px; color: var(--mist);
+  width: 52px; text-align: right; letter-spacing: 1px;
 }
 .alert-error {
   background: rgba(200,68,10,0.12);
   border: 1px solid rgba(200,68,10,0.3);
-  border-radius: 6px;
-  padding: 10px 14px;
-  font-size: 13px;
-  color: #f0a070;
+  border-radius: 6px; padding: 10px 14px;
+  font-size: 13px; color: #f0a070;
   margin-bottom: 20px;
-  display: flex;
-  align-items: flex-start;
-  gap: 8px;
+  display: flex; align-items: flex-start; gap: 8px;
 }
 .terms-wrap {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  margin-bottom: 24px;
-  margin-top: 4px;
+  display: flex; align-items: flex-start; gap: 10px;
+  margin-bottom: 24px; margin-top: 4px;
 }
 .terms-wrap input[type="checkbox"] {
-  width: 15px;
-  height: 15px;
-  margin-top: 2px;
-  accent-color: var(--rust);
-  cursor: pointer;
-  flex-shrink: 0;
+  width: 15px; height: 15px; margin-top: 2px;
+  accent-color: var(--rust); cursor: pointer; flex-shrink: 0;
 }
 .terms-wrap span { font-size: 12px; color: var(--mist); line-height: 1.5; }
 .terms-wrap span a { color: var(--rust); text-decoration: none; }
 .btn-submit {
-  width: 100%;
-  padding: 14px;
-  background: var(--rust);
-  color: #fff;
-  border: none;
-  border-radius: 6px;
+  width: 100%; padding: 14px;
+  background: var(--rust); color: #fff;
+  border: none; border-radius: 6px;
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 18px;
-  letter-spacing: 3px;
-  cursor: pointer;
+  font-size: 18px; letter-spacing: 3px; cursor: pointer;
   transition: background 0.2s, transform 0.1s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
+  display: flex; align-items: center; justify-content: center; gap: 10px;
 }
 .btn-submit:hover { background: var(--rust-dim); }
 .btn-submit:active { transform: scale(0.98); }
-.selected-role {
-  margin-top: 8px;
-  padding: 8px 12px;
-  border-radius: 6px;
-  font-size: 12px;
-  color: var(--mist);
-  border: 1px solid rgba(255,255,255,0.06);
-  background: var(--vein);
-  display: none;
-  align-items: center;
-  gap: 8px;
+
+/* Badge role karyawan */
+.role-badge {
+  display: flex; align-items: center; gap: 10px;
+  background: rgba(29,158,117,0.08);
+  border: 1px solid rgba(29,158,117,0.25);
+  border-radius: 6px; padding: 10px 14px;
+  margin-bottom: 20px;
 }
-.selected-role.show { display: flex; }
-.selected-role.admin       { border-color: rgba(200,68,10,0.3);   color: #e87040; }
-.selected-role.admin_trans { border-color: rgba(200,68,10,0.2);   color: #f0a070; }
-.selected-role.manager     { border-color: rgba(232,167,48,0.3);  color: #e8a730; }
-.selected-role.driver      { border-color: rgba(99,179,237,0.3);  color: #63b3ed; }
-.selected-role.karyawan    { border-color: rgba(29,158,117,0.3);  color: #1d9e75; }
+.role-badge i { color: #1d9e75; font-size: 18px; }
+.role-badge-text { font-size: 13px; color: var(--mist); }
+.role-badge-text strong { color: #1d9e75; }
+
 .scan-line {
-  position: fixed;
-  left: 0; right: 0;
-  height: 1px;
+  position: fixed; left: 0; right: 0; height: 1px;
   background: linear-gradient(90deg, transparent, rgba(200,68,10,0.3), transparent);
-  animation: scan 10s linear infinite;
-  pointer-events: none;
-  z-index: 0;
+  animation: scan 10s linear infinite; pointer-events: none; z-index: 0;
 }
 @keyframes scan {
   0%   { top: -2px; opacity: 0; }
@@ -353,48 +265,42 @@ body::before {
       <div class="brand-sub">Mining Transport System</div>
     </div>
   </div>
+
   <div class="middle-content">
     <div class="step-label">Buat Akun</div>
     <div class="display-title">BERGABUNG<span>BERSAMA.</span></div>
-    <p class="desc">Pilih role yang sesuai dengan jabatan Anda di perusahaan tambang nikel kami.</p>
-    <div class="role-info">
-      <div class="ri-card">
-        <div class="ri-icon admin"><i class="ti ti-shield-check"></i></div>
-        <div>
-          <span class="ri-title">Admin</span>
-          <div class="ri-desc">Kelola semua data sistem, user, dan konfigurasi</div>
+    <p class="desc">Daftarkan diri kamu untuk mulai menggunakan sistem manajemen transportasi tambang.</p>
+
+    <div class="info-card">
+      <div class="info-card-title">Akun Karyawan</div>
+      <div class="info-item">
+        <div class="info-icon"><i class="ti ti-user"></i></div>
+        <div class="info-text">
+          <strong>Default Role: Karyawan</strong>
+          Semua akun baru otomatis terdaftar sebagai Karyawan
         </div>
       </div>
-      <div class="ri-card">
-        <div class="ri-icon admin_trans"><i class="ti ti-truck-delivery"></i></div>
-        <div>
-          <span class="ri-title">Admin Transportasi</span>
-          <div class="ri-desc">Assign driver & kendaraan, kelola trip dan laporan</div>
+      <div class="info-item">
+        <div class="info-icon"><i class="ti ti-eye"></i></div>
+        <div class="info-text">
+          <strong>Bisa Memantau</strong>
+          Pantau status trip dan perjalanan secara real-time
         </div>
       </div>
-      <div class="ri-card">
-        <div class="ri-icon manager"><i class="ti ti-user-check"></i></div>
-        <div>
-          <span class="ri-title">Manager</span>
-          <div class="ri-desc">Menyetujui atau menolak permohonan trip secara berjenjang</div>
+      <div class="info-item">
+        <div class="info-icon"><i class="ti ti-map-pin"></i></div>
+        <div class="info-text">
+          <strong>Akses Dashboard</strong>
+          Lihat status kendaraan dan jadwal operasional
         </div>
       </div>
-      <div class="ri-card">
-        <div class="ri-icon driver"><i class="ti ti-steering-wheel"></i></div>
-        <div>
-          <span class="ri-title">Driver</span>
-          <div class="ri-desc">Menjalankan trip yang telah diassign dan dilaporkan</div>
-        </div>
-      </div>
-      <div class="ri-card">
-        <div class="ri-icon karyawan"><i class="ti ti-user"></i></div>
-        <div>
-          <span class="ri-title">Karyawan</span>
-          <div class="ri-desc">Buat pemesanan kendaraan dan pantau status perjalanan</div>
-        </div>
+      <div class="note-box">
+        <i class="ti ti-info-circle" style="flex-shrink:0;margin-top:1px;"></i>
+        <span>Perubahan role hanya bisa dilakukan oleh <strong>Manager</strong> melalui menu Manage Users.</span>
       </div>
     </div>
   </div>
+
   <div class="bottom-note">© 2025 VehiclePool — Mining Transport</div>
 </div>
 
@@ -416,15 +322,26 @@ body::before {
     </div>
     @endif
 
+    {{-- Info role default --}}
+    <div class="role-badge">
+      <i class="ti ti-user-check"></i>
+      <div class="role-badge-text">
+        Role akun: <strong>Karyawan</strong> — bisa diubah oleh Manager
+      </div>
+    </div>
+
     <form method="POST" action="{{ route('register') }}">
       @csrf
+
+      {{-- Hidden: role default karyawan --}}
+      <input type="hidden" name="role_user" value="karyawan">
 
       <div class="field">
         <label>Nama Lengkap</label>
         <div class="input-wrap">
           <i class="ti ti-user icon-left"></i>
           <input type="text" name="nama_user" value="{{ old('nama_user') }}"
-            placeholder="John Doe" required autocomplete="name">
+            placeholder="Nama lengkap kamu" required autocomplete="name">
         </div>
       </div>
 
@@ -433,26 +350,7 @@ body::before {
         <div class="input-wrap">
           <i class="ti ti-mail icon-left"></i>
           <input type="email" name="email_user" value="{{ old('email_user') }}"
-            placeholder="nama@perusahaan.com" required autocomplete="email">
-        </div>
-      </div>
-
-      <div class="field">
-        <label>Role / Jabatan</label>
-        <div class="input-wrap">
-          <i class="ti ti-briefcase icon-left"></i>
-          <select name="role_user" required onchange="updateRoleHint(this.value)">
-            <option value="">-- Pilih Role --</option>
-            <option value="admin"       {{ old('role_user') == 'admin'       ? 'selected' : '' }}>Admin</option>
-            <option value="admin_trans" {{ old('role_user') == 'admin_trans' ? 'selected' : '' }}>Admin Transportasi</option>
-            <option value="manager"     {{ old('role_user') == 'manager'     ? 'selected' : '' }}>Manager / Approver</option>
-            <option value="driver"      {{ old('role_user') == 'driver'      ? 'selected' : '' }}>Driver / Sopir</option>
-            <option value="karyawan"    {{ old('role_user') == 'karyawan'    ? 'selected' : '' }}>Karyawan / Staff</option>
-          </select>
-        </div>
-        <div class="selected-role" id="roleHint">
-          <i id="roleHintIcon" class="ti ti-info-circle"></i>
-          <span id="roleHintText"></span>
+            placeholder="akun@gmail.com" required autocomplete="email">
         </div>
       </div>
 
@@ -527,26 +425,6 @@ function checkStrength(val) {
   } else {
     lbl.textContent = '—';
   }
-}
-
-const roleHints = {
-  admin:       { icon: 'ti-shield-check',    text: 'Dapat mengelola semua data sistem, user, dan konfigurasi',        cls: 'admin'       },
-  admin_trans: { icon: 'ti-truck-delivery',  text: 'Assign driver & kendaraan, kelola trip dan export laporan',       cls: 'admin_trans' },
-  manager:     { icon: 'ti-user-check',      text: 'Bertanggung jawab menyetujui atau menolak permohonan trip',       cls: 'manager'     },
-  driver:      { icon: 'ti-steering-wheel',  text: 'Menjalankan trip yang diassign dan melaporkan perjalanan',        cls: 'driver'      },
-  karyawan:    { icon: 'ti-user',            text: 'Dapat membuat pemesanan dan memantau status kendaraan',           cls: 'karyawan'    },
-};
-
-function updateRoleHint(val) {
-  const hint     = document.getElementById('roleHint');
-  const icon     = document.getElementById('roleHintIcon');
-  const text     = document.getElementById('roleHintText');
-  hint.className = 'selected-role';
-  if (!val || !roleHints[val]) return;
-  const r = roleHints[val];
-  icon.className    = 'ti ' + r.icon;
-  text.textContent  = r.text;
-  hint.classList.add('show', r.cls);
 }
 </script>
 </body>

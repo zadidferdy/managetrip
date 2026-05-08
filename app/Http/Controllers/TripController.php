@@ -216,4 +216,9 @@ class TripController extends Controller
             'notes'     => $trip->notes     ?? '—',
         ]);
     }
+    public function export()
+{
+    $filename = 'trip-export-' . now()->format('Ymd-His') . '.xlsx';
+    return \Maatwebsite\Excel\Facades\Excel::download(new \App\Exports\TripExport, $filename);
+}
 }

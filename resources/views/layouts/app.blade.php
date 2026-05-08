@@ -138,10 +138,6 @@ body {
   color: var(--text-muted); font-size: 17px; transition: all 0.15s; position: relative;
 }
 .topbar-btn:hover { background: var(--surface); color: var(--text); }
-.topbar-btn .dot {
-  position: absolute; top: 6px; right: 6px;
-  width: 6px; height: 6px; background: var(--accent); border-radius: 50%; border: 1.5px solid white;
-}
 .mini-avatar {
   width: 34px; height: 34px; border-radius: 50%;
   background: linear-gradient(135deg, #3498db, #2c3e50);
@@ -324,10 +320,6 @@ textarea.form-control { resize: vertical; min-height: 80px; }
       <div class="breadcrumb">@yield('breadcrumb', 'Home / Dashboard')</div>
     </div>
     <div class="topbar-right">
-      <button class="topbar-btn" title="Notifikasi">
-        <i class="ti ti-bell"></i>
-        <span class="dot"></span>
-      </button>
       <button class="topbar-btn" title="Settings">
         <i class="ti ti-settings"></i>
       </button>

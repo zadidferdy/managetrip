@@ -117,27 +117,7 @@ body::before {
   color: var(--mist);
   max-width: 340px;
 }
-.stats {
-  display: flex;
-  gap: 40px;
-  padding-top: 40px;
-  border-top: 1px solid var(--line);
-}
-.stat-item .num {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 32px;
-  color: var(--chalk);
-  letter-spacing: 1px;
-  line-height: 1;
-}
-.stat-item .lbl {
-  font-family: 'Space Mono', monospace;
-  font-size: 10px;
-  color: var(--mist);
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  margin-top: 4px;
-}
+
 .right-panel {
   flex: 1;
   display: flex;
@@ -251,58 +231,6 @@ body::before {
 }
 .btn-submit:hover { background: var(--rust-dim); }
 .btn-submit:active { transform: scale(0.98); }
-.divider {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin: 24px 0;
-  color: var(--mist);
-  font-size: 12px;
-  font-family: 'Space Mono', monospace;
-}
-.divider::before, .divider::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  background: rgba(255,255,255,0.08);
-}
-/* 5 role cards dalam 2 baris (3 + 2) */
-.role-cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
-}
-.role-card {
-  background: var(--vein);
-  border: 1px solid rgba(255,255,255,0.07);
-  border-radius: 8px;
-  padding: 10px 8px;
-  text-align: center;
-  cursor: pointer;
-  transition: border-color 0.2s, background 0.2s;
-}
-.role-card:hover {
-  border-color: var(--rust);
-  background: rgba(200, 68, 10, 0.08);
-}
-.role-card i { font-size: 18px; color: var(--mist); display: block; margin-bottom: 5px; }
-.role-card .role-name {
-  font-family: 'Space Mono', monospace;
-  font-size: 8.5px;
-  letter-spacing: 0.8px;
-  text-transform: uppercase;
-  color: var(--mist);
-  display: block;
-  margin-bottom: 2px;
-}
-.role-card .role-email { font-size: 10px; color: rgba(140,143,153,0.6); }
-/* Baris kedua (2 card) dipusatkan */
-.role-cards-row2 {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 8px;
-  margin-top: 8px;
-}
 .alert-error {
   background: rgba(200,68,10,0.12);
   border: 1px solid rgba(200,68,10,0.3);
@@ -348,20 +276,7 @@ body::before {
     <div class="hero-title">KENDALI<span>ARMADA.</span></div>
     <p class="hero-desc">Sistem manajemen kendaraan terpadu untuk operasional tambang nikel. Monitor konsumsi BBM, jadwal servis, dan setiap perjalanan secara real-time.</p>
   </div>
-  <div class="stats">
-    <div class="stat-item">
-      <div class="num">6</div>
-      <div class="lbl">Lokasi Tambang</div>
-    </div>
-    <div class="stat-item">
-      <div class="num">2</div>
-      <div class="lbl">Level Approval</div>
-    </div>
-    <div class="stat-item">
-      <div class="num">5</div>
-      <div class="lbl">Tipe User</div>
-    </div>
-  </div>
+
 </div>
 
 <div class="right-panel">
@@ -393,7 +308,7 @@ body::before {
         <div class="input-wrap">
           <i class="ti ti-mail icon-left"></i>
           <input type="email" name="email" value="{{ old('email') }}"
-            placeholder="akun@vehiclepool.com" required autocomplete="email">
+            placeholder="akun@gmail.com" required autocomplete="email">
         </div>
       </div>
 
@@ -423,39 +338,6 @@ body::before {
       </button>
     </form>
 
-    <div class="divider">akses cepat demo</div>
-
-    {{-- Baris 1: 3 card --}}
-    <div class="role-cards">
-      <div class="role-card" onclick="fillLogin('admin@vehiclepool.com')">
-        <i class="ti ti-shield-check"></i>
-        <span class="role-name">Admin</span>
-        <span class="role-email">admin@...</span>
-      </div>
-      <div class="role-card" onclick="fillLogin('admintrans@vehiclepool.com')">
-        <i class="ti ti-truck-delivery"></i>
-        <span class="role-name">Admin Trans</span>
-        <span class="role-email">admintrans@...</span>
-      </div>
-      <div class="role-card" onclick="fillLogin('manager@vehiclepool.com')">
-        <i class="ti ti-user-check"></i>
-        <span class="role-name">Manager</span>
-        <span class="role-email">manager@...</span>
-      </div>
-    </div>
-    {{-- Baris 2: 2 card --}}
-    <div class="role-cards-row2">
-      <div class="role-card" onclick="fillLogin('driver@vehiclepool.com')">
-        <i class="ti ti-steering-wheel"></i>
-        <span class="role-name">Driver</span>
-        <span class="role-email">driver@...</span>
-      </div>
-      <div class="role-card" onclick="fillLogin('karyawan@vehiclepool.com')">
-        <i class="ti ti-user"></i>
-        <span class="role-name">Karyawan</span>
-        <span class="role-email">karyawan@...</span>
-      </div>
-    </div>
   </div>
 </div>
 
@@ -465,10 +347,6 @@ function togglePass() {
   const icon  = document.getElementById('eyeIcon');
   input.type  = input.type === 'password' ? 'text' : 'password';
   icon.className = input.type === 'password' ? 'ti ti-eye' : 'ti ti-eye-off';
-}
-function fillLogin(email) {
-  document.querySelector('input[name="email"]').value = email;
-  document.getElementById('passInput').value = 'password';
 }
 </script>
 </body>

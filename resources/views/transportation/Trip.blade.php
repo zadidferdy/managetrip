@@ -168,9 +168,14 @@
 
 <div class="page-header">
   <h2>Daftar Trip</h2>
-  <a href="{{ route('trip.create') }}" class="btn btn-primary">
-    <i class="ti ti-plus"></i> Buat Trip Baru
-  </a>
+  <div style="display:flex;gap:8px;">
+    <a href="{{ route('trip.export') }}" class="btn btn-outline">
+      <i class="ti ti-file-spreadsheet"></i> Export Excel
+    </a>
+    <a href="{{ route('trip.create') }}" class="btn btn-primary">
+      <i class="ti ti-plus"></i> Buat Trip Baru
+    </a>
+  </div>
 </div>
 
 {{-- FILTER BAR --}}

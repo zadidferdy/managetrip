@@ -65,6 +65,7 @@ Route::middleware('auth')->group(function () {
         Route::patch('/trip/{id}/start',  [TripController::class, 'start'])->name('trip.start');
         Route::patch('/trip/{id}/finish', [TripController::class, 'finish'])->name('trip.finish');
         Route::get('/trip/{id}/detail',   [TripController::class, 'detail'])->name('trip.detail');
+        Route::get('/transportation/trip/export', [TripController::class, 'export'])->name('trip.export');
     });
 
     /*

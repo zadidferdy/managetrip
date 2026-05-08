@@ -35,38 +35,57 @@ class ApprovalController extends Controller
                 ->with('error', 'Trip sudah tidak dalam status Requested.');
         }
 
-        $trip->approval_level = min($trip->approval_level + 1, 2);
+        $currentUser = auth()->user();
+        $role        = $currentUser->role_user;
 
-        if ($trip->approval_level >= 2) {
-            $trip->status = 'Approved';
+        // Level 1: admin_trans belum approve
+        if ($trip->approval_level < 1 && in_array($role, ['admin_trans', 'manager'])) {
+            $trip->approval_level = 1;
+
+            // Assign driver / vehicle jika disediakan
+            if ($request->filled('driver'))  $trip->driver  = $request->driver;
+            if ($request->filled('vehicle')) $trip->vehicle = $request->vehicle;
+
+            $trip->save();
+
+            return redirect()->route('approval.index')
+                ->with('success', "Trip {$trip->trip_code} telah disetujui Level 1. Menunggu persetujuan Level 2.");
         }
 
-        // Assign driver / vehicle if provided
-        if ($request->filled('driver'))  $trip->driver  = $request->driver;
-        if ($request->filled('vehicle')) $trip->vehicle = $request->vehicle;
+        // Level 2: manager approve (setelah level 1 selesai)
+        if ($trip->approval_level === 1 && $role === 'manager') {
+            $trip->approval_level = 2;
+            $trip->status         = 'Approved';
 
-        $trip->save();
+            $trip->save();
 
-        $msg = $trip->status === 'Approved'
-            ? "Trip {$trip->trip_code} telah disetujui sepenuhnya!"
-            : "Trip {$trip->trip_code} telah melewati Level {$trip->approval_level}. Menunggu persetujuan berikutnya.";
+            return redirect()->route('approval.index')
+                ->with('success', "Trip {$trip->trip_code} telah disetujui sepenuhnya!");
+        }
 
         return redirect()->route('approval.index')
-            ->with('success', $msg);
+            ->with('error', 'Kamu tidak memiliki wewenang untuk approve pada level ini.');
     }
 
     public function reject(Request $request, $id)
     {
         $request->validate([
             'reject_reason' => 'required|string|min:5',
+        ], [
+            'reject_reason.required' => 'Alasan penolakan wajib diisi.',
+            'reject_reason.min'      => 'Alasan minimal 5 karakter.',
         ]);
 
         $trip = Trip::findOrFail($id);
 
-        $trip->update([
-            'status'        => 'Rejected',
-            'reject_reason' => $request->reject_reason,
-        ]);
+        if ($trip->status !== 'Requested') {
+            return redirect()->route('approval.index')
+                ->with('error', 'Trip sudah tidak dalam status Requested.');
+        }
+
+        $trip->status        = 'Rejected';
+        $trip->reject_reason = $request->reject_reason;
+        $trip->save();
 
         return redirect()->route('approval.index')
             ->with('success', "Trip {$trip->trip_code} telah ditolak.");
